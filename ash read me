@@ -58,5 +58,6 @@ create_data_loaders(): Handles dataset split and augmentation
 
 evaluate_model(): Computes performance metrics and plots
 
-predict_single_image(): For real-time prediction
+predict_single_image(): For real-time prediction 
+
 
