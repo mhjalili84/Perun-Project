@@ -1,5 +1,57 @@
 
+## 📌 Project Highlights
 
-**Chest X-Ray Classification using CNN (Frontal vs Lateral)**
+* Custom CNN architecture with 4 convolutional layers and dropout regularization
+* Input images resized to 224×224 (grayscale or RGB)
+* Binary classification using **BCEWithLogitsLoss**
+* Optimizer: **Adam** (lr = 1e-4, weight\_decay = 1e-5)
+* Learning rate scheduler: **ReduceLROnPlateau**
+* Early stopping based on validation loss to avoid overfitting
+* Data augmentation and proper train/val/test split
+* Model performance evaluated with:
 
-This project implements a Convolutional Neural Network (CNN) using PyTorch to classify chest X-ray images into Frontal and Lateral views. The model is trained on grayscale images resized to 224×224 and supports optional RGB input. The architecture consists of four convolutional layers followed by two fully connected layers with dropout regularization. Binary classification is performed using a sigmoid output layer, optimized with Adam (learning rate of 1e-4, weight decay of 1e-5) and trained with BCEWithLogitsLoss. Learning rate scheduling is handled via ReduceLROnPlateau, and early stopping is used to prevent overfitting. The dataset is split into training, validation, and test sets, with data augmentation applied to improve generalization. Model performance is evaluated using accuracy, precision, recall, F1-score, AUC, and confusion matrix. Grad-CAM integration is supported for interpretability. The complete model can be saved and exported in .pt format to Google Drive. Utility functions include `train_model()` for training, `create_data_loaders()` for dataset handling, `evaluate_model()` for performance metrics and visualization, and `predict_single_image()` for real-time predictions.
+  * Accuracy, Precision, Recall, F1-score, AUC
+  * Confusion Matrix
+* Grad-CAM ready for model interpretability
+* Option to save the full model (.pt) to Google Drive
+
+---
+
+## 🧠 Model Architecture
+
+* **Input**: 224×224 grayscale or RGB image
+* **Layers**:
+
+  * 4 × Conv2D + ReLU + MaxPooling
+  * 2 × Fully Connected Layers + Dropout
+  * Final Sigmoid layer for probability output
+
+---
+
+## 🚀 Training Workflow
+
+* Binary classification: Frontal (0) vs Lateral (1)
+* Loss function: `BCEWithLogitsLoss`
+* Regularization: Dropout (p = 0.3)
+* Evaluation includes training and validation metrics
+* Early stopping and LR scheduler for optimized training
+
+---
+
+## ✅ Sample Results
+
+```
+Epoch 5/5 | Train Loss: 0.0127, Acc: 0.9954 | Val Loss: 0.0127, Acc: 0.9974  
+Precision: 1.00 | Recall: 0.99 | F1-score: 1.00 | AUC: 1.00  
+```
+
+---
+
+## 📦 Key Files & Functions
+
+* `ChestXRayClassifier`: CNN model definition
+* `train_model()`: Training loop with performance logging
+* `create_data_loaders()`: Dataset loading, splitting, and augmentation
+* `evaluate_model()`: Computes performance metrics and plots
+* `predict_single_image()`: Predicts view for a single X-ray image
+
